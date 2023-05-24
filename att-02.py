@@ -18,7 +18,7 @@ while continue_order:
     product_code = int(input('Entre com o código desejado: '))
 
     while product_code not in [100, 101, 102, 103, 104, 105, 200, 201]:
-        print('Código inválido.')
+        print('Opção inválida.')
         product_code = int(input('Entre com o código desejado: '))
 
     if product_code == 100:
@@ -52,6 +52,14 @@ while continue_order:
     elif product_code == 201:
         print('Você pediu um Chá Gelado no valor de R$4,00')
         total_cost += 4.00
+
+    elif product_code == 0:
+        print('Pedido finalizado.')
+        break
+
+    else:
+        print('Código inválido. Por favor, tente novamente!')
+        continue
 
     continue_order = int(input('Deseja pedir mais alguma coisa? (1 - Sim, 0 - Não): '))
 
