@@ -11,7 +11,7 @@ elif 10 <= product_quantity <= 99:
     discount_rate = 0.5
 elif 100 <= product_quantity <= 999:
     discount_rate = 0.10
-elif product_quantity >= 1000:
+else:
     discount_rate = 0.15
 
 total_value = product_price * product_quantity
