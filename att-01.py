@@ -6,13 +6,13 @@ product_quantity = int(input('Entre com a quantidade do produto: '))
 discount_rate = 0
 
 if product_quantity < 10:
-    discount_rate = 0.0
+    discount_rate = 0.0     # 0% de desconto
 elif 10 <= product_quantity <= 99:
-    discount_rate = 0.5
+    discount_rate = 0.5     # 5% de desconto
 elif 100 <= product_quantity <= 999:
-    discount_rate = 0.10
+    discount_rate = 0.10    # 10% de desconto
 else:
-    discount_rate = 0.15
+    discount_rate = 0.15    # 15% de desconto
 
 total_value = product_price * product_quantity
 discount_amount = total_value * discount_rate
