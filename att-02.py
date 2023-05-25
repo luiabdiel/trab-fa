@@ -11,7 +11,7 @@ print('|   105  |          X-Tudo        | 17,00 |')
 print('|   200  |   Refrigerante Lata    |  5,00 |')
 print('|   201  |        Chá Gelado      |  4,00 |')
 
-total_cost = 0
+total_cost = 0.0
 continue_order = 1
 
 while continue_order:
