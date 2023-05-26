@@ -1,95 +1,91 @@
-list_peca = []
-codigo_peca = 0
+part_list = []
+part_code = 0
 
 
-def cadastrar_peca(codigo):
-    print('Código da Peça: {}'.format(codigo))
+def register_part(code):
+    print('Código da Peça: {}'.format(code))
 
-    nome_peca = input('Entre com o NOME da peça: ')
-    fabricante_peca = input('Entre com o FABRICANTE da peça: ')
-    preco_peca = int(input('Entre com o VALOR(R$) da peça: '))
+    part_name = input('Entre com o NOME da peça: ')
+    part_manufacturer = input('Entre com o FABRICANTE da peça: ')
+    part_price = int(input('Entre com o VALOR(R$) da peça: '))
 
-    dicionario_peca = {'codigo': codigo,
-                       'nome': nome_peca,
-                       'fabricante': fabricante_peca,
-                       'preco': preco_peca
-                       }
+    part_dict = {'code': code, 'name': part_name, 'manufacturer': part_manufacturer, 'price': part_price}
 
-    list_peca.append(dicionario_peca.copy())
+    part_list.append(part_dict.copy())
 
 
-def consultar_peca():
+def search_part():
    while True:
-       opcao_consultar = input('\nEscolha a opção desejada:\n' +
+       search_option = input('\nEscolha a opção desejada:\n' +
                                '1 - Consultar TODAS as peças\n' +
                                '2 - Consultar peças por CÓDIGO\n' +
                                '3 - Consultar peças por FABRICANTE\n' +
                                '4 - Retornar\n' +
                                '>> ')
 
-       if opcao_consultar == '1':
+       if search_option == '1':
            print('--------------------')
-           for peca in list_peca:
-               for key, value in peca.items():
+           for part in part_list:
+               for key, value in part.items():
                    print('{}: {}'.format(key, value))
            print('--------------------')
-       elif opcao_consultar == '2':
-           codigo_desejado = int(input('Digite o CÓDIGO da Peça: '))
+       elif search_option == '2':
+           desired_code = int(input('Digite o CÓDIGO da Peça: '))
 
-           for peca in list_peca:
-               if peca['codigo'] == codigo_desejado:
+           for part in part_list:
+               if part['code'] == desired_code:
                    print('--------------------')
-                   for key, value in peca.items():
+                   for key, value in part.items():
                        print('{}: {}'.format(key, value))
                    print('--------------------')
-       elif opcao_consultar == '3':
-           codigo_desejado = input('Digite o FABRICANTE da Peça: ')
+       elif search_option == '3':
+           desired_code = input('Digite o FABRICANTE da Peça: ')
 
-           for peca in list_peca:
-               if peca['fabricante'] == codigo_desejado:
+           for part in part_list:
+               if part['manufacturer'] == desired_code:
                    print('--------------------')
-                   for key, value in peca.items():
+                   for key, value in part.items():
                        print('{}: {}'.format(key, value))
                    print('--------------------')
-       elif opcao_consultar == '4':
+       elif search_option == '4':
            return
        else:
            print('Opção inválida. Tente novamente!')
 
 
-def remover_peca():
-    codigo_desejado = int(input('Digite o código da peça a ser removida: '))
+def remove_part():
+    desired_code = int(input('Digite o código da peça a ser removida: '))
 
-    for peca in list_peca:
-        if peca['codigo'] == codigo_desejado:
-            list_peca.remove(peca)
+    for part in part_list:
+        if part['code'] == desired_code:
+            part_list.remove(part)
             print('Produto removido')
 
 
 # Main
 print('Bem vindo ao Controle de Estoque da Bicicletaria do Luiggi Abdiel F. S. Santos')
 while True:
-    opcao_principal = input('\nEscolha a opção desejada:\n'+
-                                '1 - Cadastrar Peça(s)\n'+
-                                '2 - Consultar Peça(s)\n'+
-                                '3 - Remover Peça(s)\n'+
-                                '4 - Sair\n'+
+    main_option = input('\nEscolha a opção desejada:\n' +
+                                '1 - Cadastrar Peça(s)\n' +
+                                '2 - Consultar Peça(s)\n' +
+                                '3 - Remover Peça(s)\n' +
+                                '4 - Sair\n' +
                                 '>> ')
 
-    if opcao_principal == '1':
+    if main_option == '1':
         print('Você selecionou a opção Cadastrar Peça')
 
-        codigo_peca += 1
-        cadastrar_peca(codigo_peca)
-    elif opcao_principal == '2':
+        part_code += 1
+        register_part(part_code)
+    elif main_option == '2':
         print('Você selecionou a opção Consultar Peça')
 
-        consultar_peca()
-    elif opcao_principal == '3':
+        search_part()
+    elif main_option == '3':
         print('Você selecionou a opção de Remover Peça')
 
-        remover_peca()
-    elif opcao_principal == '4':
+        remove_part()
+    elif main_option == '4':
         break
     else:
         print('Opção inválida. Tente novamente!')
